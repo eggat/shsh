@@ -1,0 +1,2826 @@
+/* Each chapter occupies exactly one viewport; content reflows inside its frame. */
+html {
+    scroll-padding-top: 0;
+    scroll-snap-type: y mandatory
+}
+
+.page {
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-margin: 0
+}
+
+.page-surface {
+    position: absolute;
+    top: 112px;
+    bottom: 22px;
+    left: var(--edge);
+    right: var(--edge);
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #a5afa5 transparent;
+    scroll-padding: 8px
+}
+
+.page .chapter {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    max-height: none;
+    padding: 4px 5px 8px;
+    overflow: visible;
+    scroll-margin: 0;
+    background: none;
+    transform: none
+}
+
+.page-home {
+    background-image: radial-gradient(#29384e08 .8px, transparent .8px), linear-gradient(108deg, #f5f2e9 0%, #f1efe5 54%, #e3e8dd 54%, #dce3d6 100%);
+    background-size: 14px 14px, 100% 100%
+}
+
+.page-about {
+    background: #e8edf0
+}
+
+.page-departments {
+    background: #ece9dc;
+    transition: background .35s
+}
+
+.page-departments[data-theme=trade] {
+    background: #e1eaed
+}
+
+.page-departments[data-theme=data] {
+    background: #e7e3ed
+}
+
+.page-departments[data-theme=ecommerce] {
+    background: #eee2d9
+}
+
+.page-play {
+    background: var(--blue)
+}
+
+.page-future {
+    background: #f2eee6
+}
+
+.page .section-top {
+    margin-bottom: 18px
+}
+
+.page .section-foot {
+    padding-top: 15px;
+    font-size: 15px
+}
+
+.page .section-foot .text-link {
+    font-size: 16px
+}
+
+.page .eyebrow {
+    font-size: 13px
+}
+
+.page .page-number {
+    font-size: 23px
+}
+
+.page .hero {
+    grid-template-rows: 1fr auto auto;
+    gap: 14px 0;
+    align-items: center
+}
+
+.page .hero-copy {
+    min-width: 0
+}
+
+.page .hero h1 {
+    font-size: clamp(42px, 4.5vw, 94px);
+    margin: 20px 0
+}
+
+.page .hero-description {
+    font-size: clamp(18px, 1.4vw, 25px);
+    line-height: 1.7
+}
+
+.page .hero-actions {
+    margin-top: 23px
+}
+
+.page .hero-actions .button {
+    padding: 15px 21px;
+    font-size: 17px
+}
+
+.page .hero-meta {
+    margin-top: 22px;
+    font-size: 14px
+}
+
+.page .hero-meta strong {
+    font-size: 32px
+}
+
+.page .hero-art {
+    min-height: 0;
+    height: clamp(300px, 53dvh, 670px);
+    margin: 0;
+    align-self: center
+}
+
+.page .commerce-art {
+    width: 110%;
+    max-height: 100%
+}
+
+.page .hero-bottom {
+    position: static;
+    grid-column: 1/-1;
+    padding-top: 13px;
+    font-size: 13px;
+    gap: 16px
+}
+
+.page .hero-bottom .page-number {
+    font-size: 20px
+}
+
+.page .role-launcher {
+    margin-top: 22px
+}
+
+.page .role-launcher>p {
+    margin-bottom: 10px
+}
+
+.page .role-launcher button {
+    padding: 10px
+}
+
+.page .idea-ribbon {
+    grid-column: 1/-1;
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: inset 0 -3px 0 #bda490
+}
+
+.page .idea-ribbon>div {
+    padding: 0 16px;
+    gap: 24px
+}
+
+.page .idea-ribbon span {
+    font-size: 14px
+}
+
+.page .idea-ribbon b {
+    font-size: 22px
+}
+
+.page .about {
+    gap: 18px;
+    justify-content: space-between
+}
+
+.page .about-heading {
+    gap: 30px
+}
+
+.page .about h2,
+.page .future h2 {
+    font-size: clamp(36px, 4vw, 76px)
+}
+
+.page .about-heading>p {
+    font-size: clamp(16px, 1.25vw, 22px);
+    line-height: 1.7;
+    margin: 0
+}
+
+.page .idea-formula {
+    margin: 0;
+    padding: 13px 0
+}
+
+.page .idea-formula>span,
+.page .idea-formula>strong {
+    font-size: clamp(16px, 1.5vw, 24px)
+}
+
+.page .idea-formula b {
+    font-size: 28px
+}
+
+.page .journey {
+    margin: 0
+}
+
+.page .journey-label {
+    font-size: 15px;
+    margin-bottom: 12px
+}
+
+.page .journey-item {
+    padding: 19px
+}
+
+.page .journey-icon {
+    height: 45px;
+    font-size: 35px
+}
+
+.page .journey-item h3 {
+    font-size: clamp(20px, 1.55vw, 28px);
+    margin: 10px 0
+}
+
+.page .journey-item p {
+    font-size: 16px;
+    margin: 8px 0
+}
+
+.page .journey-dept {
+    margin-top: 15px;
+    padding-top: 13px;
+    font-size: 17px
+}
+
+.page .departments {
+    gap: 16px
+}
+
+.page .departments .section-top {
+    margin-bottom: 0
+}
+
+.page .dept-tabs {
+    margin-bottom: 0
+}
+
+.page .dept-tabs button {
+    padding: 15px 16px;
+    font-size: 20px
+}
+
+.page .dept-tabs button>span {
+    font-size: 28px
+}
+
+.page #dept-panel {
+    min-height: 0
+}
+
+.page .dept-layout {
+    gap: 4%
+}
+
+.page .dept-kicker {
+    font-size: 12px;
+    margin-bottom: 12px
+}
+
+.page .dept-copy h2 {
+    font-size: clamp(32px, 3.2vw, 61px);
+    margin-bottom: 15px
+}
+
+.page .dept-intro {
+    font-size: 18px;
+    line-height: 1.75;
+    margin: 0 0 18px
+}
+
+.page .dept-learning {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px
+}
+
+.page .dept-learning h3 {
+    font-size: 17px;
+    margin-bottom: 8px
+}
+
+.page .dept-learning ul {
+    font-size: 16px;
+    line-height: 1.8
+}
+
+.page .dept-fit {
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 15px 0 9px;
+    padding-top: 12px
+}
+
+.page .source-link {
+    font-size: 13px
+}
+
+.page .demo-top {
+    font-size: 13px;
+    margin-bottom: 12px
+}
+
+.page .demo-top span:first-child {
+    font-size: 11px;
+    padding: 5px 9px
+}
+
+.page .window-bar {
+    padding: 10px 14px;
+    font-size: 10px
+}
+
+.page .demo-body {
+    padding: 22px
+}
+
+.page .demo-label {
+    font-size: 11px;
+    margin-bottom: 9px
+}
+
+.page .demo-body h3 {
+    font-size: clamp(23px, 1.8vw, 33px);
+    margin-bottom: 18px
+}
+
+.page .demo-body p {
+    font-size: 16px;
+    line-height: 1.65
+}
+
+.page .demo-body label {
+    font-size: 17px;
+    margin-bottom: 8px
+}
+
+.page .demo-body output {
+    font-size: 27px
+}
+
+.page .demo-body input[type=range] {
+    margin: 7px 0 16px
+}
+
+.page .metrics {
+    margin-bottom: 12px
+}
+
+.page .metrics>div {
+    padding: 13px 0
+}
+
+.page .metrics small {
+    font-size: 13px;
+    margin-bottom: 5px
+}
+
+.page .metrics strong {
+    font-size: 34px
+}
+
+.page .metrics strong em {
+    font-size: 14px
+}
+
+.page .demo-note {
+    font-size: 14px !important;
+    line-height: 1.7;
+    min-height: 0;
+    margin: 9px 0 0
+}
+
+.page .demo-hint {
+    font-size: 14px;
+    margin-top: 16px
+}
+
+.page .route {
+    padding: 10px 0;
+    margin-bottom: 10px
+}
+
+.page .route:before {
+    top: 29px
+}
+
+.page .route b {
+    font-size: 25px
+}
+
+.page .route span {
+    font-size: 13px
+}
+
+.page .demo-choices {
+    margin-bottom: 14px;
+    gap: 8px
+}
+
+.page .demo-choices button {
+    font-size: 16px;
+    min-height: 40px;
+    padding: 10px
+}
+
+.page .dept-foot {
+    margin-top: 0;
+    padding-top: 13px;
+    font-size: 13px
+}
+
+.page .code-box {
+    font-size: 14px;
+    padding: 15px;
+    margin-bottom: 14px
+}
+
+.page .data-bars {
+    height: 100px;
+    margin-bottom: 15px
+}
+
+.page .demo-action {
+    padding: 12px;
+    font-size: 16px
+}
+
+.page .shop-preview {
+    grid-template-columns: 85px 1fr;
+    gap: 16px;
+    margin-bottom: 14px
+}
+
+.page .shop-product {
+    height: 100px
+}
+
+.page .shop-preview strong {
+    font-size: 19px
+}
+
+.screen-switch {
+    display: none
+}
+
+.page .play {
+    gap: 18px
+}
+
+.page .play-layout {
+    gap: 5%;
+    margin: 0;
+    flex: 1
+}
+
+.page .play-copy h2 {
+    font-size: clamp(40px, 4.3vw, 82px);
+    margin: 22px 0
+}
+
+.page .play-copy>p {
+    font-size: 20px;
+    line-height: 1.7
+}
+
+.page .play-copy>small {
+    font-size: 13px
+}
+
+.page .mission-progress {
+    margin: 25px 0 18px
+}
+
+.page .quiz-stage {
+    min-height: 0;
+    padding: 28px
+}
+
+.page .quiz-stage h3 {
+    font-size: clamp(25px, 2vw, 36px);
+    line-height: 1.45
+}
+
+.page .quiz-kicker {
+    font-size: 12px;
+    margin-bottom: 19px
+}
+
+.page .quiz-description {
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 20px
+}
+
+.page .quiz-options {
+    gap: 10px
+}
+
+.page .quiz-option {
+    font-size: 17px;
+    line-height: 1.6;
+    padding: 14px
+}
+
+.page .quiz-next {
+    font-size: 17px;
+    padding: 15px 20px;
+    margin-top: 15px
+}
+
+.answer-recap {
+    padding: 15px 18px;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 20px;
+    background: #e4ecdc;
+    border: 1px solid #688e55
+}
+
+.answer-recap.incorrect {
+    background: #f0e4dc;
+    border-color: #c06a54
+}
+
+.answer-recap span,
+.answer-recap strong {
+    display: block
+}
+
+.page .quiz-explanation {
+    margin-bottom: 0
+}
+
+.page .quiz-result-icon {
+    font-size: 45px;
+    margin-bottom: 12px
+}
+
+.page .score {
+    font-size: 48px
+}
+
+.page .score small {
+    font-size: 18px
+}
+
+.page .future {
+    gap: 18px
+}
+
+.page .future-heading {
+    gap: 25px
+}
+
+.page .future-heading p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 0
+}
+
+.page .future-paths {
+    margin: 0;
+    gap: 22px
+}
+
+.page .future-paths>div {
+    padding: 21px 24px
+}
+
+.page .path-no {
+    font-size: 11px
+}
+
+.page .future-paths h3 {
+    font-size: 27px;
+    margin: 14px 0 10px
+}
+
+.page .future-paths p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0
+}
+
+.page .path-tags {
+    margin-top: 16px;
+    gap: 8px
+}
+
+.page .path-tags span {
+    font-size: 14px;
+    padding: 5px 12px
+}
+
+.future-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 18px
+}
+
+.page .closing {
+    padding: 22px 25px;
+    margin: 0;
+    gap: 20px
+}
+
+.page .closing h3 {
+    font-size: 25px;
+    margin-top: 9px
+}
+
+.page .closing .eyebrow {
+    font-size: 11px
+}
+
+.page .closing .button {
+    font-size: 17px;
+    padding: 15px 20px
+}
+
+.page footer {
+    font-size: 14px;
+    padding-top: 16px;
+    gap: 18px
+}
+
+.page footer b {
+    font-size: 17px
+}
+
+.page footer small {
+    font-size: 12px
+}
+
+.page footer p {
+    margin: 7px 0
+}
+
+.page footer details {
+    font-size: 14px;
+    position: relative
+}
+
+.page .sources {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    right: 0;
+    width: min(370px, 70vw);
+    max-height: 50dvh;
+    overflow: auto;
+    background: #fffef9;
+    padding: 18px;
+    border: 1px solid var(--ink);
+    border-radius: 10px;
+    box-shadow: 4px 4px 0 var(--ink);
+    z-index: 10;
+    font-size: 14px;
+    margin: 0
+}
+
+.page .sources small {
+    font-size: 12px
+}
+
+@media(min-width:1600px) and (min-height:950px) {
+    .page .dept-intro {
+        font-size: 21px
+    }
+
+    .page .dept-learning ul,
+    .page .dept-fit {
+        font-size: 19px
+    }
+
+    .page .demo-body {
+        padding: 28px
+    }
+
+    .page .demo-body p {
+        font-size: 18px
+    }
+
+    .page .demo-note {
+        font-size: 16px !important
+    }
+
+    .page .future-paths p {
+        font-size: 20px
+    }
+
+    .page .journey-item p {
+        font-size: 19px
+    }
+
+    .page .quiz-description,
+    .page .quiz-option {
+        font-size: 20px
+    }
+
+    .page .quiz-stage {
+        padding: 34px
+    }
+}
+
+@media(max-height:800px) {
+    .header {
+        top: 12px;
+        height: 72px
+    }
+
+    .header .brand {
+        padding: 7px 15px 7px 9px;
+        font-size: 19px;
+        border-radius: 18px
+    }
+
+    .header .brand b {
+        font-size: 14px
+    }
+
+    .header .school-logo {
+        width: 48px;
+        height: 48px
+    }
+
+    .header .school-logo img {
+        width: 912px;
+        left: -50px;
+        top: -8px
+    }
+
+    .explorer-toggle {
+        padding: 11px 15px;
+        gap: 12px;
+        border-radius: 18px
+    }
+
+    .explorer-toggle b {
+        font-size: 20px
+    }
+
+    .explorer-toggle small {
+        font-size: 8px
+    }
+
+    .menu-plus {
+        width: 32px;
+        height: 32px
+    }
+
+    .page-surface {
+        top: 96px;
+        bottom: 18px
+    }
+
+    .page .section-top {
+        margin-bottom: 12px
+    }
+
+    .page .hero h1 {
+        margin: 16px 0;
+        font-size: clamp(40px, 4.1vw, 85px)
+    }
+
+    .page .hero-actions {
+        margin-top: 18px
+    }
+
+    .page .hero-meta {
+        margin-top: 18px
+    }
+
+    .page .role-launcher {
+        margin-top: 18px
+    }
+
+    .page .role-launcher button {
+        padding: 9px
+    }
+
+    .page .about,
+    .page .future,
+    .page .play {
+        gap: 14px
+    }
+
+    .page .about-heading>p br:nth-of-type(3) {
+        display: none
+    }
+
+    .page .journey-item {
+        padding: 15px
+    }
+
+    .page .journey-icon {
+        height: 34px;
+        font-size: 28px
+    }
+
+    .page .journey-item h3 {
+        font-size: 21px
+    }
+
+    .page .journey-dept {
+        margin-top: 12px;
+        padding-top: 10px
+    }
+
+    .page .idea-formula {
+        padding: 10px 0
+    }
+
+    .page .about h2,
+    .page .future h2 {
+        font-size: clamp(34px, 3.4vw, 65px)
+    }
+
+    .page .departments {
+        gap: 12px
+    }
+
+    .page .dept-tabs button {
+        padding: 12px 14px;
+        font-size: 18px
+    }
+
+    .page .dept-tabs button>span {
+        font-size: 25px
+    }
+
+    .page .dept-copy h2 {
+        font-size: clamp(30px, 2.8vw, 54px);
+        margin-bottom: 12px
+    }
+
+    .page .dept-intro {
+        font-size: 17px;
+        margin-bottom: 13px
+    }
+
+    .page .dept-learning h3 {
+        font-size: 16px
+    }
+
+    .page .dept-learning ul {
+        font-size: 15px;
+        line-height: 1.7
+    }
+
+    .page .dept-fit {
+        font-size: 15px;
+        margin-top: 12px;
+        padding-top: 10px
+    }
+
+    .page .demo-body {
+        padding: 18px
+    }
+
+    .page .demo-body h3 {
+        font-size: 25px;
+        margin-bottom: 13px
+    }
+
+    .page .demo-body p {
+        font-size: 15px
+    }
+
+    .page .metrics>div {
+        padding: 10px 0
+    }
+
+    .page .metrics strong {
+        font-size: 30px
+    }
+
+    .page .demo-note {
+        font-size: 13px !important;
+        line-height: 1.6
+    }
+
+    .page .demo-hint {
+        margin-top: 12px;
+        font-size: 13px
+    }
+
+    .page .route {
+        padding: 6px 0;
+        margin-bottom: 8px
+    }
+
+    .page .route:before {
+        top: 24px
+    }
+
+    .page .demo-choices {
+        margin-bottom: 10px
+    }
+
+    .page .demo-choices button {
+        padding: 8px;
+        min-height: 36px
+    }
+
+    .page .future-paths>div {
+        padding: 17px 21px
+    }
+
+    .page .future-paths h3 {
+        font-size: 24px;
+        margin: 11px 0 9px
+    }
+
+    .page .future-paths p {
+        font-size: 16px
+    }
+
+    .page .path-tags {
+        margin-top: 12px
+    }
+
+    .page .closing {
+        padding: 17px 21px
+    }
+
+    .page .closing h3 {
+        font-size: 23px
+    }
+
+    .page .closing .button {
+        padding: 13px 17px;
+        font-size: 16px
+    }
+
+    .page footer {
+        padding-top: 12px
+    }
+
+    .page .play-copy>p {
+        font-size: 18px
+    }
+
+    .page .play-copy h2 {
+        margin: 18px 0
+    }
+
+    .page .quiz-stage {
+        padding: 24px
+    }
+
+    .page .quiz-kicker {
+        margin-bottom: 15px
+    }
+
+    .page .quiz-stage h3 {
+        font-size: 27px
+    }
+
+    .page .quiz-description {
+        font-size: 16px;
+        margin-bottom: 17px
+    }
+
+    .page .quiz-option {
+        font-size: 16px;
+        padding: 12px
+    }
+
+    .page .quiz-options {
+        gap: 8px
+    }
+}
+
+@media(max-width:800px) {
+    .page-surface {
+        top: 99px;
+        bottom: 16px
+    }
+
+    .page .section-top {
+        margin-bottom: 0
+    }
+
+    .page .eyebrow {
+        font-size: 11px;
+        letter-spacing: .7px
+    }
+
+    .page .page-number {
+        font-size: 18px
+    }
+
+    .page .section-foot {
+        font-size: 12px;
+        padding-top: 10px;
+        gap: 8px;
+        align-items: center
+    }
+
+    .page .section-foot .text-link {
+        font-size: 13px
+    }
+
+    .page .hero {
+        gap: 12px 0
+    }
+
+    .page .hero h1 {
+        font-size: clamp(30px, 7.7vw, 55px);
+        margin: 15px 0 17px
+    }
+
+    .page .hero .eyebrow {
+        font-size: 10px;
+        gap: 7px
+    }
+
+    .page .mini-pill {
+        font-size: 9px;
+        padding: 4px 8px
+    }
+
+    .page .hero-description {
+        font-size: 17px;
+        line-height: 1.7
+    }
+
+    .page .hero-actions {
+        margin-top: 16px;
+        gap: 15px
+    }
+
+    .page .hero-actions .button {
+        font-size: 16px;
+        padding: 13px 17px;
+        gap: 12px
+    }
+
+    .page .hero-actions>.text-link {
+        font-size: 14px
+    }
+
+    .page .hero-meta {
+        display: none
+    }
+
+    .page .role-launcher {
+        margin-top: 17px
+    }
+
+    .page .role-launcher>p {
+        font-size: 12px;
+        gap: 7px;
+        margin-bottom: 9px
+    }
+
+    .page .role-launcher>p span {
+        font-size: 8px
+    }
+
+    .page .role-launcher>div {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 7px
+    }
+
+    .page .role-launcher button {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        padding: 9px 5px;
+        gap: 4px
+    }
+
+    .page .role-launcher button>span {
+        grid-row: auto;
+        font-size: 24px;
+        margin: 0
+    }
+
+    .page .role-launcher b {
+        font-size: 14px
+    }
+
+    .page .role-launcher small {
+        display: none
+    }
+
+    .page .hero-art {
+        height: clamp(140px, 21dvh, 235px);
+        width: 90%;
+        justify-self: center;
+        margin: 0
+    }
+
+    .page .commerce-art {
+        height: 100%;
+        width: auto;
+        max-width: 100%
+    }
+
+    .page .art-disc {
+        width: 70%;
+        max-width: 210px;
+        top: 0
+    }
+
+    .page .hero-art .tag-top {
+        top: 5%;
+        right: 0;
+        font-size: 9px;
+        padding: 7px 10px
+    }
+
+    .page .hero-art .tag-bottom {
+        bottom: 0;
+        left: 6%;
+        font-size: 11px;
+        padding: 7px 10px
+    }
+
+    .page .tiny-cross {
+        font-size: 19px
+    }
+
+    .page .sticker-coordinate,
+    .page .sticker-seal,
+    .page .art-caption {
+        display: none
+    }
+
+    .page .star-one {
+        font-size: 35px;
+        top: 5%
+    }
+
+    .page .star-two {
+        font-size: 25px
+    }
+
+    .page .hero-bottom {
+        padding-top: 9px;
+        font-size: 11px;
+        gap: 10px
+    }
+
+    .page .scroll-cue>span {
+        height: 24px;
+        width: 24px;
+        font-size: 17px
+    }
+
+    .page .hero-bottom .page-number {
+        font-size: 16px
+    }
+
+    .page .idea-ribbon {
+        padding: 7px 0
+    }
+
+    .page .idea-ribbon span {
+        font-size: 11px
+    }
+
+    .page .idea-ribbon b {
+        font-size: 17px
+    }
+
+    .page .idea-ribbon>div {
+        gap: 17px
+    }
+
+    .page .about {
+        gap: 13px
+    }
+
+    .page .about-heading {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: center
+    }
+
+    .page .about h2 {
+        font-size: clamp(28px, 5.3vw, 42px)
+    }
+
+    .page .about-heading>p {
+        font-size: 14px;
+        line-height: 1.65;
+        margin: 0
+    }
+
+    .page .about-heading>p br {
+        display: none
+    }
+
+    .page .idea-formula {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 10px 0
+    }
+
+    .page .idea-formula>span,
+    .page .idea-formula>strong {
+        font-size: 12px;
+        display: block;
+        text-align: center
+    }
+
+    .page .idea-formula b {
+        display: block;
+        font-size: 22px
+    }
+
+    .page .idea-formula>i {
+        font-size: 16px
+    }
+
+    .page .idea-formula>i:nth-child(4) {
+        font-size: 16px
+    }
+
+    .page .idea-formula>i:nth-child(4):after {
+        content: none
+    }
+
+    .page .idea-formula>i:nth-child(6) {
+        display: block
+    }
+
+    .page .journey-label {
+        font-size: 12px;
+        margin-bottom: 10px
+    }
+
+    .page .journey-track {
+        gap: 10px
+    }
+
+    .page .journey-item {
+        padding: 13px 12px
+    }
+
+    .page .journey-icon {
+        height: 30px;
+        font-size: 26px
+    }
+
+    .page .journey-item small {
+        font-size: 9px
+    }
+
+    .page .journey-item h3 {
+        font-size: 18px;
+        margin: 9px 0
+    }
+
+    .page .journey-item p {
+        font-size: 14px;
+        margin: 6px 0;
+        line-height: 1.5
+    }
+
+    .page .journey-dept {
+        font-size: 15px;
+        margin-top: 10px;
+        padding-top: 9px
+    }
+
+    .page .journey-dept b {
+        font-size: 20px
+    }
+
+    .page .journey-item:after {
+        font-size: 62px
+    }
+
+    .page .departments {
+        gap: 13px
+    }
+
+    .page .dept-tabs {
+        gap: 8px
+    }
+
+    .page .dept-tabs button {
+        font-size: 16px;
+        padding: 12px 10px;
+        gap: 8px
+    }
+
+    .page .dept-tabs button>span {
+        font-size: 23px
+    }
+
+    .page .dept-tabs button>b {
+        font-size: 22px
+    }
+
+    .screen-switch {
+        display: flex;
+        gap: 6px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 9px
+    }
+
+    .screen-switch button {
+        background: #ffffff65;
+        border: 1px solid #29384e35;
+        border-radius: 30px;
+        padding: 8px 14px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.4
+    }
+
+    .screen-switch button[aria-selected=true] {
+        background: var(--ink);
+        color: #fff
+    }
+
+    .page .dept-layout {
+        display: block
+    }
+
+    .page #dept-panel[data-view=learn] .dept-demo {
+        display: none
+    }
+
+    .page #dept-panel[data-view=demo] .dept-copy {
+        display: none
+    }
+
+    .page .dept-kicker {
+        font-size: 11px;
+        margin-bottom: 12px
+    }
+
+    .page .dept-copy h2 {
+        font-size: clamp(28px, 6.2vw, 42px);
+        margin-bottom: 13px
+    }
+
+    .page .dept-intro {
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 16px
+    }
+
+    .page .dept-learning {
+        grid-template-columns: 1fr 1fr;
+        gap: 17px
+    }
+
+    .page .dept-learning h3 {
+        font-size: 15px
+    }
+
+    .page .dept-learning ul {
+        font-size: 14px;
+        line-height: 1.75
+    }
+
+    .page .dept-learning li {
+        padding-left: 16px
+    }
+
+    .page .dept-learning li:before {
+        font-size: 12px
+    }
+
+    .page .dept-fit {
+        font-size: 14px;
+        line-height: 1.65;
+        margin: 14px 0 8px;
+        padding-top: 11px
+    }
+
+    .page .source-link {
+        font-size: 12px
+    }
+
+    .page .dept-demo {
+        width: 100%
+    }
+
+    .page .demo-top {
+        font-size: 12px;
+        margin-bottom: 10px
+    }
+
+    .page .demo-body {
+        padding: 20px
+    }
+
+    .page .demo-body h3 {
+        font-size: 26px;
+        margin-bottom: 17px
+    }
+
+    .page .demo-body p {
+        font-size: 16px
+    }
+
+    .page .demo-body label {
+        font-size: 16px
+    }
+
+    .page .demo-body output {
+        font-size: 28px
+    }
+
+    .page .demo-note {
+        font-size: 14px !important;
+        line-height: 1.7
+    }
+
+    .page .metrics strong {
+        font-size: 34px
+    }
+
+    .page .metrics small {
+        font-size: 13px
+    }
+
+    .page .demo-hint {
+        font-size: 13px;
+        margin-top: 15px
+    }
+
+    .page .dept-foot {
+        font-size: 11px;
+        padding-top: 10px;
+        gap: 10px
+    }
+
+    .page .dept-foot .text-link {
+        font-size: 13px
+    }
+
+    .page .play {
+        gap: 14px
+    }
+
+    .page .play-layout {
+        display: block
+    }
+
+    .page .play-copy .outline-pill,
+    .page .play-copy>p,
+    .page .play-spark {
+        display: none
+    }
+
+    .page .play-copy h2 {
+        font-size: 29px;
+        margin: 0 0 10px;
+        letter-spacing: -1px
+    }
+
+    .page .play-copy h2 br {
+        display: none
+    }
+
+    .page .play-copy>small {
+        font-size: 11px
+    }
+
+    .page .mission-progress {
+        gap: 8px;
+        margin: 10px 0
+    }
+
+    .page .mission-progress span {
+        height: 5px;
+        width: 36px
+    }
+
+    .page .quiz-stage {
+        margin-top: 16px;
+        padding: 21px;
+        min-height: 0
+    }
+
+    .page .quiz-kicker {
+        font-size: 11px;
+        margin-bottom: 16px
+    }
+
+    .page .quiz-stage h3 {
+        font-size: 25px;
+        margin-bottom: 14px
+    }
+
+    .page .quiz-description {
+        font-size: 16px;
+        margin-bottom: 18px;
+        line-height: 1.7
+    }
+
+    .page .quiz-option {
+        font-size: 16px;
+        padding: 12px;
+        gap: 12px
+    }
+
+    .page .quiz-option span {
+        font-size: 12px;
+        padding-right: 10px
+    }
+
+    .page .quiz-options {
+        gap: 9px
+    }
+
+    .page .quiz-next {
+        font-size: 16px;
+        padding: 13px 16px;
+        margin-top: 12px
+    }
+
+    .page .answer-recap {
+        font-size: 15px;
+        margin-bottom: 17px;
+        padding: 12px 15px
+    }
+
+    .page .quiz-explanation {
+        margin-bottom: 0
+    }
+
+    .page .quiz-result-icon {
+        font-size: 34px;
+        margin-bottom: 10px
+    }
+
+    .page .score {
+        font-size: 40px
+    }
+
+    .page .future {
+        gap: 15px
+    }
+
+    .page .future-heading {
+        display: block
+    }
+
+    .page .future h2 {
+        font-size: clamp(31px, 6.3vw, 46px)
+    }
+
+    .page .future-heading p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-top: 15px
+    }
+
+    .page .future-paths {
+        grid-template-columns: 1fr;
+        gap: 13px
+    }
+
+    .page .future-paths>div {
+        padding: 17px 20px
+    }
+
+    .page .future-paths h3 {
+        font-size: 22px;
+        margin: 10px 0
+    }
+
+    .page .future-paths p {
+        font-size: 16px;
+        line-height: 1.65
+    }
+
+    .page .path-tags {
+        margin-top: 13px;
+        gap: 7px
+    }
+
+    .page .path-tags span {
+        font-size: 13px;
+        padding: 4px 10px
+    }
+
+    .page-future:not([data-view=contact]) .future-contact {
+        display: none
+    }
+
+    .page-future[data-view=contact] .future-paths {
+        display: none
+    }
+
+    .page .future-contact {
+        gap: 18px
+    }
+
+    .page .closing {
+        padding: 21px;
+        gap: 19px
+    }
+
+    .page .closing h3 {
+        font-size: 23px
+    }
+
+    .page .closing .button {
+        font-size: 16px;
+        padding: 14px 17px
+    }
+
+    .page .closing .text-link {
+        font-size: 15px
+    }
+
+    .page footer {
+        gap: 14px;
+        font-size: 14px
+    }
+
+    .page footer b {
+        font-size: 16px
+    }
+
+    .page footer small {
+        font-size: 12px
+    }
+
+    .page .sources {
+        right: auto;
+        left: 0;
+        width: 75vw
+    }
+
+    .page .future-heading p {
+        display: none
+    }
+}
+
+@media(max-width:420px) {
+    .page .hero h1 {
+        font-size: clamp(29px, 8.7vw, 36px)
+    }
+
+    .page .hero-description {
+        font-size: 16px
+    }
+
+    .page .hero-actions>.text-link {
+        display: none
+    }
+
+    .page .hero .eyebrow {
+        font-size: 9px
+    }
+
+    .page .hero-art {
+        height: clamp(130px, 19dvh, 180px)
+    }
+
+    .page .hero-bottom {
+        font-size: 10px
+    }
+
+    .page .about-heading {
+        gap: 14px
+    }
+
+    .page .about h2 {
+        font-size: 28px
+    }
+
+    .page .about-heading>p {
+        font-size: 13px
+    }
+
+    .page .idea-formula>span,
+    .page .idea-formula>strong {
+        font-size: 11px
+    }
+
+    .page .idea-formula b {
+        font-size: 20px
+    }
+
+    .page .journey-item h3 {
+        font-size: 17px
+    }
+
+    .page .journey-item p {
+        font-size: 13px
+    }
+
+    .page .journey-dept {
+        font-size: 14px
+    }
+
+    .page .dept-copy h2 {
+        font-size: 29px
+    }
+
+    .page .dept-intro {
+        font-size: 15px
+    }
+
+    .page .dept-learning {
+        gap: 14px
+    }
+
+    .page .dept-learning h3 {
+        font-size: 14px
+    }
+
+    .page .dept-learning ul {
+        font-size: 13px
+    }
+
+    .page .dept-tabs button {
+        font-size: 15px;
+        gap: 7px
+    }
+
+    .page .dept-tabs button>span {
+        font-size: 21px
+    }
+
+    .page .dept-fit {
+        font-size: 13px
+    }
+
+    .page .dept-foot {
+        font-size: 10px
+    }
+
+    .page .future-paths>div {
+        padding: 16px 18px
+    }
+
+    .page .future-paths p {
+        font-size: 15px
+    }
+}
+
+/* The navigation overlay follows the same one-screen rule. */
+.explorer-dialog[open] {
+    height: 100dvh;
+    overflow: hidden;
+    gap: 0
+}
+
+.explorer-heading {
+    margin: 22px 0
+}
+
+.explorer-heading h2 {
+    font-size: clamp(40px, 5vw, 76px)
+}
+
+.nav.exploration-map {
+    min-height: 0
+}
+
+.map-art {
+    min-height: 100px
+}
+
+.exploration-map .map-card {
+    min-height: 0
+}
+
+.explorer-bottom {
+    margin-top: 18px
+}
+
+@media(max-width:900px) {
+    .nav.exploration-map {
+        flex: 1;
+        grid-template-rows: 1fr 1fr;
+        min-height: 0
+    }
+
+    .exploration-map .map-card {
+        min-height: 0;
+        padding: 16px
+    }
+
+    .map-art {
+        min-height: 65px;
+        margin: 0 0 8px;
+        flex: 1
+    }
+
+    .map-card-copy strong {
+        font-size: 27px
+    }
+
+    .map-card-copy small {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-top: 7px
+    }
+
+    .map-card-foot {
+        margin-top: 10px;
+        padding-top: 8px
+    }
+
+    .explorer-heading h2 {
+        font-size: 44px
+    }
+
+    .explorer-heading {
+        margin: 18px 0
+    }
+
+    .explorer-heading>p {
+        font-size: 13px
+    }
+
+    .explorer-heading .eyebrow {
+        font-size: 10px;
+        margin-bottom: 10px
+    }
+
+    .explorer-bottom {
+        margin-top: 16px
+    }
+}
+
+@media(max-width:480px) {
+    .explorer-dialog {
+        padding: 16px
+    }
+
+    .explorer-heading {
+        margin: 16px 0
+    }
+
+    .explorer-heading h2 {
+        font-size: 36px
+    }
+
+    .explorer-heading>p {
+        margin-top: 9px;
+        font-size: 12px
+    }
+
+    .exploration-map .map-card {
+        padding: 12px
+    }
+
+    .map-card-copy strong {
+        font-size: 24px
+    }
+
+    .map-card-copy small {
+        font-size: 12px;
+        line-height: 1.5
+    }
+
+    .map-art {
+        min-height: 55px;
+        margin: 0 0 8px
+    }
+
+    .map-art-orbit i {
+        width: 75px;
+        height: 49px
+    }
+
+    .map-art-orbit b {
+        font-size: 46px
+    }
+
+    .map-art-blocks {
+        grid-template-columns: 29px 29px;
+        grid-template-rows: 29px 29px;
+        gap: 3px
+    }
+
+    .map-art-blocks i {
+        font-size: 20px;
+        border-width: 1.5px
+    }
+
+    .map-art-spark {
+        font-size: 74px
+    }
+
+    .map-art-spark i {
+        font-size: 10px;
+        padding: 6px 8px;
+        bottom: 10%
+    }
+
+    .map-art-steps {
+        padding: 2px 0 0
+    }
+
+    .map-art-steps i {
+        width: 19px;
+        height: 21px
+    }
+
+    .map-art-steps i:nth-child(2) {
+        height: 35px
+    }
+
+    .map-art-steps i:nth-child(3) {
+        height: 49px
+    }
+
+    .map-art-steps b {
+        font-size: 40px;
+        right: 8%;
+        top: 0
+    }
+
+    .map-card-foot {
+        font-size: 7px;
+        margin-top: 8px;
+        padding-top: 8px
+    }
+
+    .map-card-foot>span {
+        font-size: 11px
+    }
+
+    .map-card-top {
+        font-size: 7px
+    }
+
+    .map-card-top>b {
+        font-size: 22px
+    }
+
+    .explorer-bottom {
+        font-size: 9px;
+        margin-top: 14px
+    }
+
+    .explorer-bottom small {
+        font-size: 9px
+    }
+}
+
+@media(max-height:620px) {
+    .explorer-heading {
+        margin: 12px 0
+    }
+
+    .explorer-heading h2 {
+        font-size: 36px
+    }
+
+    .explorer-heading>p,
+    .explorer-bottom {
+        display: none
+    }
+
+    .map-card-copy small {
+        display: none
+    }
+
+    .map-art {
+        min-height: 40px
+    }
+
+    .map-card-foot {
+        margin-top: 8px
+    }
+
+    .explorer-dialog {
+        padding-top: 12px;
+        padding-bottom: 14px
+    }
+}
+
+@media(max-width:900px) and (max-height:620px) {
+    .map-art {
+        display: none
+    }
+
+    .explorer-heading>p {
+        display: none
+    }
+
+    .exploration-map .map-card {
+        padding: 12px
+    }
+
+    .map-card-copy {
+        margin-top: auto
+    }
+
+    .map-card-top {
+        margin-bottom: 8px
+    }
+}
+
+@media(max-height:400px) {
+    .explorer-heading {
+        display: none
+    }
+
+    .nav.exploration-map {
+        margin-top: 12px
+    }
+
+    .map-art {
+        display: none
+    }
+
+    .map-card-copy {
+        margin-top: auto
+    }
+
+    .map-card-top {
+        margin-bottom: 6px
+    }
+}
+
+@media(min-width:801px) and (max-height:800px) {
+    .page .dept-copy h2 {
+        font-size: clamp(30px, 2.5vw, 48px)
+    }
+
+    .page .dept-intro {
+        font-size: 16px;
+        line-height: 1.7
+    }
+
+    .page .dept-fit {
+        font-size: 14px
+    }
+
+    .page .demo-label,
+    .page .demo-body .route {
+        display: none
+    }
+
+    .page .demo-body>p:not(.demo-note) {
+        margin: 0 0 12px
+    }
+
+    .page .demo-body h3 {
+        font-size: 24px;
+        margin-bottom: 12px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior: auto;
+        scroll-snap-type: y proximity
+    }
+}
+
+/* Natural flow is the fallback: content stays visible without JavaScript fitting. */
+.page .chapter {
+    transform: none !important;
+    width: 100% !important
+}
+
+.page .hero-art {
+    height: clamp(260px, 50vh, 600px)
+}
+
+.page .button,
+.page .journey-item {
+    box-shadow: 2px 2px 0 #29384e30
+}
+
+.page .demo-window {
+    box-shadow: 5px 5px 0 #29384e20
+}
+
+.page .quiz-stage {
+    box-shadow: 5px 5px 0 #29384e30
+}
+
+.page .role-launcher button:nth-child(2)>span {
+    color: #718a91
+}
+
+.page .role-launcher button:nth-child(3)>span {
+    color: #857893
+}
+
+.page .role-launcher button:nth-child(4)>span {
+    color: #ad8b76
+}
+
+.explorer-dialog {
+    height: 100vh;
+    height: 100dvh
+}
+
+@media(max-width:800px) {
+    .page .hero-art {
+        height: clamp(130px, 19vh, 180px)
+    }
+}
+
+/* Presentation interaction: no text selection or visible scrollbar tracks. */
+html,
+body,
+body * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none
+}
+
+html,
+body,
+* {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none
+}
+
+*::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0
+}
+
+img,
+svg {
+    -webkit-user-drag: none
+}
+
+/* The homepage uses explicit grid tracks, with no nested scrolling or scaling. */
+#home .page-surface {
+    overflow: hidden
+}
+
+#home .hero {
+    height: 100%;
+    min-height: 0;
+    padding: 0;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    gap: 12px 24px
+}
+
+#home .hero-copy {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    min-height: 0
+}
+
+#home .hero-copy>.eyebrow {
+    margin: 0 0 clamp(8px, 1.3vh, 16px)
+}
+
+#home .hero h1 {
+    font-size: clamp(38px, 4.3vw, 92px);
+    line-height: 1.22;
+    margin: 0 0 clamp(12px, 1.8vh, 22px);
+    letter-spacing: -.045em
+}
+
+#home .school-name {
+    color: var(--ink)
+}
+
+#home .hero-description {
+    margin: 0;
+    font-size: clamp(17px, 1.35vw, 24px);
+    line-height: 1.65
+}
+
+#home .hero-actions {
+    margin-top: clamp(14px, 2vh, 23px);
+    flex-wrap: nowrap
+}
+
+#home .role-launcher {
+    margin-top: clamp(14px, 2vh, 23px)
+}
+
+#home .role-launcher>p {
+    font-size: 13px;
+    margin-bottom: 9px
+}
+
+#home .role-launcher button {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 3px 8px;
+    padding: 11px 10px;
+    text-align: left
+}
+
+#home .role-launcher button>span {
+    grid-row: span 2;
+    align-self: center;
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 0
+}
+
+#home .role-launcher b {
+    font-size: 16px
+}
+
+#home .role-launcher small {
+    font-size: 10px
+}
+
+#home .hero-art {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    min-height: 0;
+    align-self: stretch;
+    margin: 0;
+    justify-self: stretch
+}
+
+#home .commerce-art {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain
+}
+
+#home .art-disc {
+    max-width: 90%;
+    max-height: 90%
+}
+
+#home .hero-bottom {
+    grid-column: 1/-1;
+    grid-row: 2;
+    margin: 0;
+    padding-top: 10px
+}
+
+#home .idea-ribbon {
+    grid-column: 1/-1;
+    grid-row: 3;
+    margin: 0;
+    padding: 8px 0
+}
+
+@media(min-width:801px) and (max-height:800px) {
+    #home .hero h1 {
+        font-size: clamp(36px, 3.8vw, 69px)
+    }
+
+    #home .hero-description {
+        font-size: 17px
+    }
+
+    #home .hero-actions .button {
+        padding: 12px 18px;
+        font-size: 16px
+    }
+
+    #home .role-launcher>p {
+        font-size: 12px
+    }
+
+    #home .role-launcher button {
+        padding: 9px
+    }
+
+    #home .role-launcher b {
+        font-size: 15px
+    }
+}
+
+@media(max-width:800px) {
+    #home .hero {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) clamp(100px, 17vh, 170px) auto auto;
+        gap: 9px
+    }
+
+    #home .hero-copy {
+        grid-column: 1;
+        grid-row: 1
+    }
+
+    #home .hero-art {
+        grid-column: 1;
+        grid-row: 2;
+        width: 88%;
+        justify-self: center;
+        align-self: stretch
+    }
+
+    #home .hero-bottom {
+        grid-row: 3;
+        padding-top: 8px
+    }
+
+    #home .idea-ribbon {
+        grid-row: 4;
+        padding: 6px 0
+    }
+
+    #home .hero h1 {
+        font-size: clamp(30px, 7.7vw, 54px);
+        line-height: 1.2;
+        margin-bottom: 13px
+    }
+
+    #home .hero-description {
+        font-size: 16px;
+        line-height: 1.6
+    }
+
+    #home .hero-actions {
+        margin-top: 14px
+    }
+
+    #home .hero-actions>.text-link {
+        display: none
+    }
+
+    #home .hero-actions .button {
+        font-size: 15px;
+        padding: 11px 16px
+    }
+
+    #home .role-launcher {
+        margin-top: 14px
+    }
+
+    #home .role-launcher>p {
+        font-size: 12px;
+        margin-bottom: 8px
+    }
+
+    #home .role-launcher>p span {
+        display: none
+    }
+
+    #home .role-launcher button {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        padding: 8px 3px;
+        gap: 4px
+    }
+
+    #home .role-launcher button>span {
+        grid-row: auto;
+        font-size: 23px
+    }
+
+    #home .role-launcher b {
+        font-size: 13px
+    }
+
+    #home .role-launcher small {
+        display: none
+    }
+
+    #home .hero-bottom {
+        font-size: 11px
+    }
+
+    #home .idea-ribbon span {
+        font-size: 11px
+    }
+
+    #home .hero-art .tag-top {
+        font-size: 8px;
+        padding: 5px 8px
+    }
+
+    #home .hero-art .tag-bottom {
+        font-size: 10px;
+        padding: 5px 8px
+    }
+
+    #home .hero-art .tiny-cross {
+        font-size: 17px
+    }
+}
+
+@media(max-width:420px) {
+    #home .hero h1 {
+        font-size: clamp(28px, 8.7vw, 36px)
+    }
+
+    #home .hero-copy>.eyebrow {
+        font-size: 9px
+    }
+
+    #home .role-launcher b {
+        font-size: 12px
+    }
+}
+
+@media(max-width:800px) and (max-height:700px) {
+    #home .hero {
+        grid-template-rows: minmax(0, 1fr) clamp(78px, 14vh, 110px) auto auto;
+        gap: 7px
+    }
+
+    #home .hero-copy>.eyebrow {
+        display: none
+    }
+
+    #home .hero h1 {
+        font-size: clamp(27px, 7.7vw, 37px);
+        margin-bottom: 10px
+    }
+
+    #home .hero-description {
+        font-size: 14px;
+        line-height: 1.55
+    }
+
+    #home .hero-actions {
+        margin-top: 10px
+    }
+
+    #home .hero-actions .button {
+        font-size: 14px;
+        padding: 10px 14px
+    }
+
+    #home .role-launcher {
+        margin-top: 12px
+    }
+
+    #home .role-launcher>p {
+        display: none
+    }
+
+    #home .role-launcher button {
+        padding: 7px 3px;
+        gap: 3px
+    }
+
+    #home .role-launcher button>span {
+        font-size: 20px
+    }
+
+    #home .role-launcher b {
+        font-size: 12px
+    }
+
+    #home .hero-bottom {
+        font-size: 10px
+    }
+
+    #home .idea-ribbon {
+        padding: 5px 0
+    }
+
+    #home .idea-ribbon b {
+        font-size: 14px
+    }
+
+    #home .idea-ribbon span {
+        font-size: 10px
+    }
+}
+
+@media(min-width:801px) and (max-height:600px) {
+    #home .hero {
+        gap: 8px 20px;
+        grid-template-rows: minmax(0, 1fr) auto
+    }
+
+    #home .hero-copy>.eyebrow,
+    #home .idea-ribbon,
+    #home .role-launcher>p,
+    #home .role-launcher small {
+        display: none
+    }
+
+    #home .hero h1 {
+        font-size: clamp(26px, 3vw, 42px);
+        line-height: 1.15;
+        margin-bottom: 9px
+    }
+
+    #home .hero-description {
+        font-size: 14px;
+        line-height: 1.5
+    }
+
+    #home .hero-actions {
+        margin-top: 10px
+    }
+
+    #home .hero-actions .button {
+        padding: 9px 14px;
+        font-size: 14px
+    }
+
+    #home .hero-actions>.text-link {
+        font-size: 13px
+    }
+
+    #home .role-launcher {
+        margin-top: 10px
+    }
+
+    #home .role-launcher button {
+        padding: 8px;
+        grid-template-columns: 22px 1fr;
+        gap: 6px
+    }
+
+    #home .role-launcher button>span {
+        grid-row: auto;
+        font-size: 22px
+    }
+
+    #home .role-launcher b {
+        font-size: 13px
+    }
+
+    #home .hero-bottom {
+        font-size: 11px;
+        padding-top: 7px
+    }
+}
+
+@media(max-width:800px) and (max-height:520px) {
+    #home .hero {
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 7px
+    }
+
+    #home .hero-art,
+    #home .idea-ribbon {
+        display: none
+    }
+
+    #home .hero-bottom {
+        grid-row: 2
+    }
+
+    #home .hero h1 {
+        font-size: 27px;
+        line-height: 1.15;
+        margin-bottom: 8px
+    }
+
+    #home .hero-actions {
+        margin-top: 9px
+    }
+
+    #home .role-launcher {
+        margin-top: 10px
+    }
+}
+
+@media(max-width:800px) and (max-height:440px) {
+    #home .hero-description {
+        display: none
+    }
+
+    #home .role-launcher button {
+        grid-template-columns: 19px 1fr;
+        gap: 3px;
+        padding: 6px
+    }
+
+    #home .role-launcher button>span {
+        font-size: 18px
+    }
+
+    #home .role-launcher b {
+        font-size: 11px
+    }
+}
+
+/* Supporting links live in the final footer, outside the presentation chapters. */
+#home .hero {
+    grid-template-rows: minmax(0, 1fr) auto
+}
+
+#home .idea-ribbon {
+    grid-row: 2
+}
+
+footer.site-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(150px, .8fr) minmax(0, 1.45fr) 44px;
+    align-items: start;
+    gap: 25px;
+    padding-top: 20px;
+    font-size: 14px;
+    line-height: 1.7
+}
+
+footer.site-footer>div {
+    width: auto;
+    min-width: 0
+}
+
+footer.site-footer h3 {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    margin: 0 0 11px;
+    color: var(--ink)
+}
+
+footer.site-footer .footer-identity b {
+    font-size: 17px;
+    display: block
+}
+
+footer.site-footer .footer-identity p {
+    font-size: 13px;
+    line-height: 1.75;
+    margin: 9px 0
+}
+
+footer.site-footer .footer-identity small {
+    font-size: 11px;
+    line-height: 1.85;
+    color: #59617a;
+    display: block
+}
+
+.footer-navigation>div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px 12px
+}
+
+.footer-navigation a {
+    font-size: 14px;
+    line-height: 1.7
+}
+
+.footer-resource-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px 14px
+}
+
+.footer-resource-links a {
+    font-size: 12px;
+    line-height: 1.75;
+    color: #46576d
+}
+
+.footer-resource-links a:last-child {
+    grid-column: 1/-1
+}
+
+.footer-navigation a:hover,
+.footer-resource-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px
+}
+
+.footer-resources>small {
+    display: block;
+    font-size: 10px;
+    color: #697183;
+    margin-top: 11px
+}
+
+footer.site-footer .back-top {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    font-size: 23px
+}
+
+@media(max-width:1100px) {
+    footer.site-footer {
+        grid-template-columns: minmax(0, 1.1fr) minmax(140px, .8fr) minmax(0, 1.3fr) 40px;
+        gap: 19px
+    }
+
+    .footer-resource-links {
+        grid-template-columns: 1fr;
+        gap: 4px
+    }
+
+    .footer-resource-links a:last-child {
+        grid-column: auto
+    }
+
+    footer.site-footer h3 {
+        font-size: 13px
+    }
+
+    footer.site-footer .footer-identity b {
+        font-size: 15px
+    }
+
+    .footer-navigation a {
+        font-size: 13px
+    }
+}
+
+@media(max-width:800px) {
+    #home .hero {
+        grid-template-rows: minmax(0, 1fr) clamp(100px, 17vh, 170px) auto
+    }
+
+    #home .idea-ribbon {
+        grid-row: 3
+    }
+
+    footer.site-footer {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 22px 20px;
+        padding-top: 18px
+    }
+
+    footer.site-footer .footer-identity {
+        grid-column: 1/-1;
+        padding-right: 50px;
+        position: relative
+    }
+
+    footer.site-footer .footer-identity b {
+        font-size: 17px
+    }
+
+    footer.site-footer .footer-identity p {
+        font-size: 13px;
+        margin: 8px 0
+    }
+
+    footer.site-footer .footer-identity small {
+        font-size: 11px
+    }
+
+    .footer-navigation a {
+        font-size: 13px
+    }
+
+    .footer-navigation>div {
+        gap: 8px 9px
+    }
+
+    .footer-resource-links a {
+        font-size: 12px
+    }
+
+    .footer-resource-links {
+        gap: 6px
+    }
+
+    footer.site-footer .back-top {
+        grid-column: 2;
+        justify-self: end;
+        margin-top: 0
+    }
+
+    footer.site-footer h3 {
+        font-size: 13px;
+        margin-bottom: 10px
+    }
+}
+
+@media(max-width:800px) and (max-height:700px) {
+    #home .hero {
+        grid-template-rows: minmax(0, 1fr) clamp(78px, 14vh, 110px) auto
+    }
+}
+
+@media(min-width:801px) and (max-height:600px) {
+    #home .hero {
+        grid-template-rows: minmax(0, 1fr)
+    }
+}
+
+@media(max-width:800px) and (max-height:520px) {
+    #home .hero {
+        grid-template-rows: minmax(0, 1fr)
+    }
+}

@@ -1,0 +1,449 @@
+/* Layer 0: the supplied group photo. Layer 1: contrast overlay. Layer 2+: content. */
+.page-honors {
+  --honor-photo-position: center 36%;
+  --honor-subject-mask: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0i5ZyW5bGkXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMTI4MCA5NjAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyODAgOTYwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojRkZGRkZGO30NCjwvc3R5bGU+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMCwwdjk2MGgxMjgwVjBIMHogTTU2NC44LDQyMy4xYzAsMC0wLjEsMC00LjYsMC42Yy0xLjUsMC4yLTMsMC4zLTQuNiwwLjVjMi41LDguOCw1LjYsMjEuOCw3LDM3LjgNCgljMS40LDE1LjcsMC42LDI3LjEsMCwzNi45Yy0xLDE2LjUtMi4xLDQwLjQtMi40LDcxLjVjMCwyOS45LDAuOCw1My42LDEuNiw3MC40YzAuNiwxMiwxLDE3LjcsMS42LDIzLjJjMC43LDYuMSwxLjEsMTAuMiwyLjEsMTUuOA0KCWMyLjcsMTQuOSw1LjIsMTYuNiwzLjksMjBjLTQuMywxMS4yLTQwLjcsMTQuOS01MS4zLDAuM2MtNC40LTYtMC41LTkuOC0yLjctMzMuNWMtMS4yLTEyLjYtMi40LTEzLjgtNC4xLTI4LjcNCgljLTAuOS04LTEuNi0xNy45LTEuOS0zMy4yYy0wLjYtMzQuMSwxLjUtNjEtMy42LTYxLjljLTIuNi0wLjUtNS45LDYuMi02LjksOC4zYy0xNi4xLDMyLjUtMTAuNiwxMjQuNy05LjIsMTQ2LjMNCgljLTE2LjUtMS44LTMyLjktMy42LTQ5LjQtNS4zYzEuNC03LjgsMi40LTE0LjQsMy0xOWM0LjktMzQuOCw0LjUtNTguNiw0LjQtNjUuNWMtMC4xLTYtMC40LTEyLjgtNS43LTYyLjcNCgljLTItMTguOC0zLjctMzQuMy00LjktNDUuM2MtNi41LTktMTUtMjIuNi0yMS40LTQwLjRjLTMuNS05LjctOC4xLTIyLjYtOC45LTM5LjZjLTAuOC0xNi4yLDIuOS0xNS40LDYuNS00OC4xDQoJYzEuOS0xNy41LDEuNy0yNS4yLDQuOS00My43YzIuNC0xMy44LDMuNi0yMC44LDYuOS0yNS45YzEwLjQtMTYuMiwzMy4yLTE5LjIsNDUuMi0xOS44YzEuNS0xLjMsMy4yLTIuNSw1LTMuNg0KCWMzLjctMi4zLDUuOS01LjMsOC40LTguN2MwLjEtMC4xLDAuMi0wLjMsMC4zLTAuNGMtMC41LTEuMy0xLjItMy4xLTEuNy01LjVjLTAuMS0wLjMtMC40LTEuOC0wLjYtMy41Yy0wLjktNy42LDEuMi0xMi40LTAuOS0xNA0KCWMtMS41LTEuMS0zLjIsMC43LTUuMS0wLjNjLTMtMS41LTIuOC03LjktMi4zLTEzLjhjMS4zLTE2LDItMjQsNi0yOC44YzUuNy02LjksMTMuNy05LDE2LjItOS43YzUuMy0xLjQsOS42LTEuMSwxMy44LTAuOA0KCWM4LjYsMC43LDE3LjUsMS4zLDI1LjEsOC4xYzEuNywxLjYsOS40LDguNyw5LjgsMTguN2MwLjIsNC40LTEuNCwxMC4zLTQuNiwyMi4xYy0wLjQsMS4zLTAuNiwyLjEtMSwzLjdjLTAuNywzLTAuOCwzLjktMS43LDYuMw0KCWMtMi45LDcuOC03LjUsMTMuNC0xMC45LDE2LjljLTQuNCw1LjQtNC43LDguMi0zLjksOS44YzEsMi4yLDMuNywxLjYsNyw1YzEuMSwxLjEsMSwxLjQsNC4yLDYuM2MyLjQsMy44LDMuNiw1LjcsNCw2LjENCgljNCwzLjcsNy43LDAuNSwxMy43LDMuN2MzLjgsMiwzLjMsMy44LDkuMiw4LjFjMi43LDEuOSw1LjEsMy4yLDYuNiw0YzAuNSwwLjEsMSwwLjMsMS41LDAuNXMwLjksMC4zLDEuNCwwLjVjMC43LDAsMS45LDAsMy4xLDAuNQ0KCWM2LDIuNCw3LjEsMTIuNiw3LjYsMTdjMS40LDEyLjcsNC4xLDMzLjQsNy4zLDYwLjNjNi4zLDMuMywxMi44LDcuMywxMi4xLDkuN2MtMC42LDIuMy03LjEsMS41LTcuNywzLjZjLTEuMiw0LDIwLjQsMTAuOSwxOS42LDE2LjMNCgljLTAuNiwzLjgtMTIsNS0xNi41LDUuNEM1ODIuNiw0MjYuOSw1NzIsNDI1LDU2NC44LDQyMy4xeiIvPg0KPC9zdmc+DQo=");
+  isolation: isolate;
+  background: #111d2b url('assets/honors-group.png') var(--honor-photo-position) / cover no-repeat;
+}
+
+.page-honors::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, #0b1522ed 0%, #0b15223d 48%, #0b152259 100%),
+    linear-gradient(90deg, #0b1522e6 0%, #0b1522d1 38%, #0b15226b 100%);
+  -webkit-mask-image: var(--honor-subject-mask);
+  mask-image: var(--honor-subject-mask);
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: var(--honor-photo-position);
+  mask-position: var(--honor-photo-position);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+#honors>.page-surface {
+  z-index: 2
+}
+
+.page .honors {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  color: #f8fafc;
+}
+
+.honors .section-top {
+  margin-bottom: 0
+}
+
+#honors .eyebrow {
+  color: #eef3f8;
+  text-shadow: 0 1px 4px #0008
+}
+
+.honor-year {
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 6px 11px;
+  border: 1px solid #ffffff66;
+  border-radius: 20px;
+  background: #142236c9;
+  color: #f6ead0;
+  white-space: nowrap;
+}
+
+.honor-layout {
+  display: grid;
+  grid-template-columns: 1.15fr .9fr;
+  gap: 7%;
+  align-items: center;
+  flex: 1;
+}
+
+.honor-copy {
+  min-width: 0
+}
+
+.honor-pill {
+  display: inline-block;
+  font-size: 13px;
+  padding: 7px 12px;
+  border: 1px solid #e6d6b56b;
+  border-radius: 30px;
+  color: #f3e6cc;
+  background: #142236c9;
+}
+
+.honor-copy h2 {
+  color: #fff;
+  font-size: clamp(40px, 4.3vw, 82px);
+  line-height: 1.24;
+  letter-spacing: -.05em;
+  font-weight: 900;
+  margin: 22px 0;
+  text-shadow: 0 2px 16px #0005;
+}
+
+.honor-copy h2>span {
+  color: #f0dfb7
+}
+
+.honor-student {
+  margin: 0 0 18px
+}
+
+.honor-student>span {
+  font-size: 15px;
+  color: #e0e8f1;
+  letter-spacing: 1px
+}
+
+.honor-student h3 {
+  font-size: 46px;
+  letter-spacing: 3px;
+  margin: 8px 0 0;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.honor-student h3>span {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-left: 13px;
+  color: #e0e8f1
+}
+
+.honor-story {
+  font-size: 20px;
+  line-height: 1.85;
+  margin: 0 0 18px;
+  color: #f0f4f8;
+  max-width: 760px
+}
+
+.honor-story,
+.honor-student {
+  text-shadow: 0 1px 3px #000b
+}
+
+.honor-story>span {
+  font-weight: 800;
+  color: #ffedc4
+}
+
+.honor-message {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #e0e8f1;
+  margin: 0 0 20px
+}
+
+.honor-copy>.text-link {
+  font-size: 17px;
+  color: #fff
+}
+
+/* Award geometry is restored in honor-card.css. */
+/* The facts sit above both the background photo and its contrast overlay. */
+.honor-facts {
+  position: relative;
+  z-index: 3;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #dce5f166;
+  border-radius: 14px;
+  background: #102033ed;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 26px #0003;
+}
+
+.honor-facts>div {
+  padding: 17px 22px;
+  position: relative
+}
+
+.honor-facts>div+div::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 1px;
+  background: #dce5f133
+}
+
+.honor-facts span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #d0dce8;
+  display: block;
+  margin-bottom: 8px
+}
+
+.honor-facts strong {
+  font-size: 23px;
+  font-weight: 700;
+  color: #fff
+}
+
+.exploration-map .map-honors,
+.exploration-map .map-honors.active {
+  background: #e4dcc8
+}
+
+.map-art-honor {
+  font-size: 125px;
+  line-height: 1;
+  color: #8b7754;
+  rotate: 8deg
+}
+
+.map-art-honor i {
+  position: absolute;
+  font: 700 12px/1 Consolas, monospace;
+  padding: 10px 13px;
+  background: #f6f2e8;
+  border: 1px solid #8b775466;
+  bottom: 12%;
+  right: 3%;
+  rotate: -16deg;
+  letter-spacing: 1px;
+  color: #71634d
+}
+
+@media (min-width: 801px) and (max-height: 850px) {
+  .page .honors {
+    gap: 14px
+  }
+
+  .honor-layout {
+    gap: 5%
+  }
+
+  .honor-pill {
+    font-size: 11px;
+    padding: 6px 10px
+  }
+
+  .honor-copy h2 {
+    font-size: clamp(35px, 3.6vw, 65px);
+    margin: 16px 0
+  }
+
+  .honor-student {
+    margin-bottom: 13px
+  }
+
+  .honor-student>span {
+    font-size: 13px
+  }
+
+  .honor-student h3 {
+    font-size: 38px;
+    margin-top: 6px
+  }
+
+  .honor-student h3>span {
+    font-size: 14px
+  }
+
+  .honor-story {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 13px
+  }
+
+  .honor-message {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 14px
+  }
+
+  .honor-copy>.text-link {
+    font-size: 15px
+  }
+
+  .honor-facts>div {
+    padding: 13px 18px
+  }
+
+  .honor-facts span {
+    font-size: 11px;
+    margin-bottom: 6px
+  }
+
+  .honor-facts strong {
+    font-size: 20px
+  }
+}
+
+@media (max-width: 800px) {
+  .page-honors {
+    --honor-photo-position: 23% center
+  }
+
+  .page-honors::before {
+    background: linear-gradient(180deg, #0b1522d9, #0b1522b8 45%, #0b1522f5)
+  }
+
+  .page .honors {
+    gap: 15px
+  }
+
+  .honor-year {
+    font-size: 11px;
+    padding: 5px 9px
+  }
+
+  .honor-layout {
+    grid-template-columns: 1fr;
+    gap: 17px;
+    flex: none
+  }
+
+  .honor-pill,
+  .honor-message {
+    display: none
+  }
+
+  .honor-copy h2 {
+    font-size: clamp(32px, 6.8vw, 45px);
+    line-height: 1.2;
+    margin: 0 0 15px
+  }
+
+  .honor-student {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0 0 14px
+  }
+
+  .honor-student h3 {
+    order: -1;
+    white-space: nowrap;
+    font-size: 34px;
+    margin: 0;
+    letter-spacing: 2px
+  }
+
+  .honor-student h3>span {
+    font-size: 13px;
+    margin-left: 8px
+  }
+
+  .honor-student>span {
+    font-size: 12px;
+    letter-spacing: .5px;
+    max-width: 10em;
+    line-height: 1.7
+  }
+
+  .honor-story {
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 14px;
+    max-width: none
+  }
+
+  .honor-copy>.text-link {
+    font-size: 14px
+  }
+
+  .honor-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+
+  .honor-facts>div {
+    padding: 12px 16px
+  }
+
+  .honor-facts>div:nth-child(3)::before {
+    display: none
+  }
+
+  .honor-facts>div:nth-child(-n+2) {
+    border-bottom: 1px solid #dce5f133
+  }
+
+  .honor-facts span {
+    font-size: 11px;
+    margin-bottom: 5px
+  }
+
+  .honor-facts strong {
+    font-size: 17px
+  }
+
+  .map-art-honor {
+    font-size: 90px
+  }
+
+  .map-art-honor i {
+    font-size: 9px;
+    padding: 7px 9px
+  }
+}
+
+@media (max-width: 420px) {
+  .honor-copy h2 {
+    font-size: 32px
+  }
+
+  .honor-story {
+    font-size: 14px
+  }
+
+  .honor-student h3 {
+    font-size: 31px
+  }
+
+  .honor-student h3>span {
+    font-size: 12px
+  }
+
+  .honor-student>span {
+    font-size: 11px
+  }
+}
+
+@media (max-width: 800px) and (max-height: 700px) {
+  .page .honors {
+    gap: 12px
+  }
+
+  .honor-layout {
+    gap: 13px
+  }
+
+  .honor-copy h2 {
+    font-size: 28px;
+    margin-bottom: 12px
+  }
+
+  .honor-student {
+    margin-bottom: 10px
+  }
+
+  .honor-student h3 {
+    font-size: 29px
+  }
+
+  .honor-story {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 10px
+  }
+
+  .honor-facts>div {
+    padding: 10px 14px
+  }
+}
